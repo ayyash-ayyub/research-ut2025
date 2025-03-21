@@ -1,0 +1,15 @@
+<div class="mobile-app-links" style="text-align: center;">
+  <p style="color: blue; font-size: 18px; font-weight: bold; margin-bottom: 5px;">
+    <span style="color: #000000;">Akses Tuton kini dalam genggaman. Silahkan unduh aplikasi 
+      <span style="color: #0000ff;">Tuton</span> sesuai versi <em>Smartphone</em> Anda.
+    </span>
+  </p>
+  <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 3px;">
+    <a href="https://play.google.com/store/apps/details?id=id.ac.ut.tuton" target="_blank">
+      <img src="https://utdastorage.blob.core.windows.net/cdnelearning/dsi-ut/images/ic_android.svg" alt="Get it on Google Play" style="height: 120px;" />
+    </a>
+    <a href="https://apps.apple.com/id/app/tuton/id6737981274" target="_blank">
+      <img src="https://utdastorage.blob.core.windows.net/cdnelearning/dsi-ut/images/ic_ios.svg" alt="Download on the App Store" style="height: 120px;" />
+    </a>
+  </div>
+</div>
