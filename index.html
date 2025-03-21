@@ -63,7 +63,10 @@
 <body>
 
     <div class="quiz-container">
-        <h2> Tutorial Kolaboratif Manusia/AI PJJ by User-Centered Design</h2>
+        <div class="title-container">
+            <img src="ut.png" alt="Tutorial Image" class="quiz-image">
+            <h2>Tutorial Kolaboratif Manusia/AI PJJ by User-Centered Design</h2>
+        </div>
         <div id="quiz"></div>
         <button onclick="submitQuiz()">Submit Answers</button>
         <p class="result" id="result"></p>
@@ -72,6 +75,20 @@
             <button onclick="learnWithAI()">Belajar dengan AI</button>
         </div>
     </div>
+
+    <style>
+        .title-container {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Adjust spacing between image and text */
+        }
+    
+        .quiz-image {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+        }
+    </style>
+    
 
     <script>
      const allQuestions = [
