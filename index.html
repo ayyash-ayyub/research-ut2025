@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 21 Maret</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        .question-card {
+            background: #ffffff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+        .options label {
+            display: block;
+            margin: 5px 0;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h2> Tutorial Kolaboratif Manusia/AI PJJ by User-Centered Design</h2>
+        <div id="quiz"></div>
+        <button onclick="submitQuiz()">Submit Answers</button>
+        <p class="result" id="result"></p>
+        <div id="actions" class="hidden">
+            <button onclick="resetQuiz()">Retry Quiz</button>
+            <button onclick="learnWithAI()">Belajar dengan AI</button>
+        </div>
+    </div>
+
+    <script>
+     const allQuestions = [
+    { question: "Kejahatan yang dilakukan dengan cara mengirimkan email spam atau mencuri informasi pribadi dikenal sebagai:", options: ["Carding", "Phishing", "Cyberterrorism", "Hacking"], answer: "Phishing" },
+    { question: "Apa yang dimaksud dengan hijacking dalam dunia cybercrime?", options: ["Serangan DDoS terhadap jaringan komputer", "Peretasan akun media sosial seseorang", "Pembajakan hasil karya orang lain", "Penyebaran virus berbahaya"], answer: "Pembajakan hasil karya orang lain" },
+    { question: "DoS (Denial of Service) Attack bertujuan untuk:", options: ["Mencuri data pengguna secara diam-diam", "Mengunci akun pengguna hingga membayar tebusan", "Melumpuhkan sistem komputer target dengan membanjiri lalu lintas jaringan", "Menghapus data yang tersimpan di dalam server"], answer: "Melumpuhkan sistem komputer target dengan membanjiri lalu lintas jaringan" },
+    { question: "Cybersquatting adalah praktik kejahatan yang dilakukan dengan:", options: ["Menggunakan domain plesetan dari nama perusahaan terkenal", "Membuat virus komputer yang menyerang situs web", "Mencuri identitas orang lain untuk transaksi keuangan", "Mengakses jaringan komputer tanpa izin"], answer: "Menggunakan domain plesetan dari nama perusahaan terkenal" },
+    { question: "Kejahatan yang dilakukan dengan mengubah atau memalsukan data di internet dikenal sebagai:", options: ["Data forgery", "Cyberstalking", "Typosquatting", "Spoofing"], answer: "Data forgery" },
+    { question: "Teknik sniffing dalam dunia cybercrime digunakan untuk:", options: ["Menyadap komunikasi dan mencuri informasi login", "Menyebarkan malware melalui media sosial", "Mengirimkan email palsu untuk menipu korban", "Melumpuhkan sistem dengan serangan DDoS"], answer: "Menyadap komunikasi dan mencuri informasi login" },
+    { question: "Phishing sering dilakukan melalui:", options: ["Penyebaran ransomware", "Email yang mengarahkan pengguna ke situs palsu", "Serangan DoS pada server", "Penyebaran software bajakan"], answer: "Email yang mengarahkan pengguna ke situs palsu" },
+    { question: "Ransomware bekerja dengan cara:", options: ["Mengunci file korban dan meminta tebusan", "Mencuri informasi kartu kredit pengguna", "Menyebarkan virus melalui flash drive", "Memalsukan data transaksi keuangan"], answer: "Mengunci file korban dan meminta tebusan" },
+    { question: "Salah satu karakteristik cybercrime yang membedakannya dari kejahatan konvensional adalah:", options: ["Pelakunya hanya terdiri dari orang yang tidak berpendidikan", "Tidak meninggalkan jejak digital", "Bersifat global dan sulit dideteksi", "Mudah dihentikan dengan software antivirus"], answer: "Bersifat global dan sulit dideteksi" },
+    { question: "Cybercrime berbeda dengan kejahatan konvensional karena:", options: ["Tidak melibatkan unsur kekerasan fisik secara langsung", "Hanya bisa dilakukan oleh hacker profesional", "Mudah dilacak oleh polisi siber", "Tidak berdampak secara finansial"], answer: "Tidak melibatkan unsur kekerasan fisik secara langsung" },
+    { question: "Langkah pertama untuk meningkatkan keamanan siber adalah:", options: ["Menggunakan password yang kuat dan unik", "Menonaktifkan semua firewall", "Menggunakan jaringan WiFi publik untuk transaksi keuangan", "Membagikan informasi pribadi di media sosial"], answer: "Menggunakan password yang kuat dan unik" },
+    { question: "Two-Factor Authentication (2FA) digunakan untuk:", options: ["Meningkatkan perlindungan akses akun online", "Memblokir situs web tertentu di jaringan perusahaan", "Menyembunyikan aktivitas internet pengguna", "Memalsukan identitas di dunia maya"], answer: "Meningkatkan perlindungan akses akun online" },
+    { question: "Salah satu cara hacker mencuri password seseorang adalah dengan teknik:", options: ["Spoofing", "Password Cracker", "Cyber espionage", "Port scanning"], answer: "Password Cracker" },
+    { question: "Undang-Undang yang mengatur kejahatan siber di Indonesia adalah:", options: ["UU No. 11 Tahun 2008 tentang ITE", "KUHP Pasal 362", "UU No. 13 Tahun 2003 tentang Ketenagakerjaan", "UU No. 22 Tahun 2009 tentang Lalu Lintas"], answer: "UU No. 11 Tahun 2008 tentang ITE" },
+    { question: "Pasal 28 Ayat (1) UU ITE mengatur tentang:", options: ["Perlindungan hak pribadi di internet", "Larangan penyebaran berita bohong yang menyesatkan", "Hak kepemilikan domain internet", "Perlindungan data pribadi dari perusahaan asing"], answer: "Larangan penyebaran berita bohong yang menyesatkan" },
+    { question: "Kejahatan carding berkaitan dengan:", options: ["Pencurian nomor kartu kredit untuk transaksi online", "Pembuatan virus yang menyebar melalui email", "Pengintaian aktivitas seseorang di media sosial", "Peretasan situs pemerintah"], answer: "Pencurian nomor kartu kredit untuk transaksi online" },
+    { question: "Cyberterrorism merupakan kejahatan yang bertujuan untuk:", options: ["Menyebarkan berita bohong di media sosial", "Meretas dan mengancam keamanan negara", "Menggunakan kartu kredit orang lain tanpa izin", "Menjual produk bajakan secara online"], answer: "Meretas dan mengancam keamanan negara" },
+    { question: "SQL Injection adalah metode yang digunakan untuk:", options: ["Memodifikasi atau mencuri data dari database melalui perintah SQL berbahaya", "Menyebarkan virus melalui email", "Mengakses akun pengguna tanpa izin", "Memblokir situs tertentu di jaringan perusahaan"], answer: "Memodifikasi atau mencuri data dari database melalui perintah SQL berbahaya" },
+    { question: "Spyware merupakan salah satu jenis malware yang:", options: ["Mengunci file dan meminta tebusan", "Memantau dan mencuri informasi pengguna secara diam-diam", "Memodifikasi sistem operasi secara permanen", "Menyerang server dengan jumlah trafik yang besar"], answer: "Memantau dan mencuri informasi pengguna secara diam-diam" },
+    { question: "Man-in-the-Middle Attack terjadi ketika:", options: ["Seorang peretas mengintai komunikasi antara dua pihak tanpa izin", "Seorang hacker meretas jaringan WiFi publik", "Virus komputer menggandakan dirinya sendiri", "Pengguna secara tidak sengaja mengunduh malware"], answer: "Seorang peretas mengintai komunikasi antara dua pihak tanpa izin" },
+    { question: "Salah satu cara paling efektif untuk mencegah serangan phishing adalah:", options: ["Selalu mengunduh lampiran email dari sumber tidak dikenal", "Menggunakan perangkat lunak anti-virus dan memverifikasi tautan sebelum mengkliknya", "Mengabaikan semua email yang dikirim oleh perusahaan besar", "Membagikan informasi pribadi di media sosial agar lebih transparan"], answer: "Menggunakan perangkat lunak anti-virus dan memverifikasi tautan sebelum mengkliknya" },
+    { question: "Firewall berfungsi untuk:", options: ["Melindungi jaringan dari akses tidak sah", "Menghapus semua file yang terinfeksi virus", "Meningkatkan kecepatan internet", "Mengirimkan spam email secara otomatis"], answer: "Melindungi jaringan dari akses tidak sah" },
+    { question: "Salah satu alasan utama perlunya Cyber Law adalah:", options: ["Internet tidak memiliki batasan geografis sehingga memerlukan regulasi khusus", "Kejahatan siber hanya terjadi di beberapa negara tertentu", "Dunia maya lebih aman dibandingkan dunia nyata", "Semua pengguna internet sudah memahami hukum yang berlaku"], answer: "Internet tidak memiliki batasan geografis sehingga memerlukan regulasi khusus" }
+];
+        
+function getRandomQuestions() {
+            return allQuestions.sort(() => 0.5 - Math.random()).slice(0, 10);
+        }
+        
+        let selectedQuestions = getRandomQuestions();
+        
+        function loadQuiz() {
+            const quizContainer = document.getElementById("quiz");
+            quizContainer.innerHTML = "";
+            document.getElementById("result").innerText = "";
+            document.getElementById("actions").classList.add("hidden");
+            
+            selectedQuestions.forEach((q, index) => {
+                let questionHTML = `<div class="question-card">
+                    <div class="question">${index + 1}. ${q.question}</div>
+                    <div class="options">`;
+                q.options.forEach(option => {
+                    questionHTML += `<label>
+                        <input type="radio" name="question${index}" value="${option}"> ${option}
+                    </label>`;
+                });
+                questionHTML += "</div></div>";
+                quizContainer.innerHTML += questionHTML;
+            });
+        }
+        
+        function submitQuiz() {
+            let score = 0;
+            selectedQuestions.forEach((q, index) => {
+                let selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+                if (selectedOption && selectedOption.value === q.answer) {
+                    score++;
+                }
+            });
+            
+            if (score >= 7) {
+                document.getElementById("result").innerText = "Anda telah paham";
+            } else {
+                document.getElementById("result").innerText = `Skor Anda: ${score} dari ${selectedQuestions.length}`;
+                document.getElementById("actions").classList.remove("hidden");
+            }
+        }
+        
+        function resetQuiz() {
+            selectedQuestions = getRandomQuestions();
+            loadQuiz();
+        }
+        
+        function learnWithAI() {
+            alert("Mengalihkan ke pembelajaran dengan AI...");
+            // Di sini bisa diarahkan ke halaman lain atau fitur AI
+        }
+        
+        loadQuiz();
+    </script>
+</body>
+</html>
