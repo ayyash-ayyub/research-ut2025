@@ -5,66 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo 21 Maret</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        .quiz-container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            margin: auto;
-            text-align: center;
-        }
-        .question-card {
-            background: #ffffff;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 8px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-        .question {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .options {
-            display: flex;
-            flex-direction: column;
-        }
-        .options label {
-            display: block;
-            margin: 5px 0;
-        }
-        button {
-            margin-top: 10px;
-            padding: 10px;
-            background: blue;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .result {
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        .hidden {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
 
     <div class="quiz-container">
         <div class="title-container">
-            <img src="ut.png" alt="Tutorial Image" class="quiz-image">
+            <img src="images/ut.png" alt="Tutorial Image" class="quiz-image">
             <h2>Tutorial Kolaboratif Manusia/AI PJJ by User-Centered Design</h2>
         </div>
         <div id="quiz"></div>
@@ -73,6 +21,7 @@
         <div id="actions" class="hidden">
             <button onclick="resetQuiz()">Retry Quiz</button>
             <button onclick="learnWithAI()">Belajar dengan AI</button>
+            <button onclick="learnWithAI()">Hubungkan dengar Tutor</button>
         </div>
     </div>
 
@@ -151,6 +100,8 @@ function getRandomQuestions() {
                     score++;
                 }
             });
+
+            
             
             if (score >= 7) {
                 document.getElementById("result").innerText = "Anda telah paham";
