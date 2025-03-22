@@ -11,5 +11,53 @@
     <a href="https://apps.apple.com/id/app/tuton/id6737981274" target="_blank">
       <img src="https://utdastorage.blob.core.windows.net/cdnelearning/dsi-ut/images/ic_ios.svg" alt="Download on the App Store" style="height: 120px;" />
     </a>
+
+    <button type="button" class="btn btn-success" style="border-radius:10px"><b><font color='white'><i class="fa fa-key"> </i>&nbsp;&nbsp;Aktivasi</font></b></button> |https://elearning.ut.ac.id/apput/newuser/
+
+    <button type="button" class="btn btn-warning" style="border-radius:10px"><b><font color='white'><i class="fa fa-refresh"> </i>&nbsp;&nbsp;Reset Password</font></b></button> |https://elearning.ut.ac.id/login/forgot_password.php
+
+    <button type="button" class="btn btn-danger" style="border-radius:10px"><b><font color='white'><i class="fa fa-file-text"> </i>&nbsp;&nbsp;Panduan</font></b></button> |/mod/folder/view.php?id=900
+
   </div>
 </div>
+
+
+
+aplikasi
+<button type="button" class="btn btn-success" style="border-radius:10px"><b><font color='white'><i class="fa fa-key"> </i>&nbsp;&nbsp;Aktivasi</font></b></button> |https://elearning.ut.ac.id/apput/newuser/
+
+<button type="button" class="btn btn-warning" style="border-radius:10px"><b><font color='white'><i class="fa fa-refresh"> </i>&nbsp;&nbsp;Reset Password</font></b></button> |https://elearning.ut.ac.id/login/forgot_password.php
+
+<button type="button" class="btn btn-danger" style="border-radius:10px"><b><font color='white'><i class="fa fa-file-text"> </i>&nbsp;&nbsp;Panduan</font></b></button> |/mod/folder/view.php?id=900
+
+
+
+
+
+    <button type="button" class="btn btn-success" style="border-radius:10px"><b><font color='white'><i class="fa fa-key"> </i>&nbsp;&nbsp;Aktivasi</font></b></button> |https://elearning.ut.ac.id/apput/newuser/
+
+    <button type="button" class="btn btn-warning" style="border-radius:10px"><b><font color='white'><i class="fa fa-refresh"> </i>&nbsp;&nbsp;Reset Password</font></b></button> |https://elearning.ut.ac.id/login/forgot_password.php
+
+    <button type="button" class="btn btn-danger" style="border-radius:10px"><b><font color='white'><i class="fa fa-file-text"> </i>&nbsp;&nbsp;Panduan</font></b></button> |/mod/folder/view.php?id=900
+
+    <button type="button" class="btn btn-" style="border-radius:10px"><b><font color='white'><i class="fa fa-android"> </i>&nbsp;&nbsp;Android</font></b></button> |https://play.google.com/store/apps/details?id=id.ac.ut.tuton
+
+    <button type="button" class="btn btn-danger" style="border-radius:10px"><b><font color='white'><i class="fa fa-file-text"> </i>&nbsp;&nbsp;IOS</font></b></button> |https://apps.apple.com/id/app/tuton/id6737981274
+
+  
+  
+  
+  
+  <a href="https://play.google.com/store/apps/details?id=id.ac.ut.tuton" target="_blank">
+      <img src="https://utdastorage.blob.core.windows.net/cdnelearning/dsi-ut/images/ic_android.svg" alt="Get it on Google Play" style="height: 120px;" />
+    </a>
+    <a href="https://apps.apple.com/id/app/tuton/id6737981274" target="_blank">
+      <img src="https://utdastorage.blob.core.windows.net/cdnelearning/dsi-ut/images/ic_ios.svg" alt="Download on the App Store" style="height: 120px;" />
+    </a>
+
+
+
+logo header button
+      <button type="button"  style="border-radius:10px;background-color:green;"><b><font color='white'><i class="fa fa-android"> </i>&nbsp;&nbsp;Android</font></b></button> |https://play.google.com/store/apps/details?id=id.ac.ut.tuton
+
+   <button type="button" style="border-radius:10px;background-color:black;olor:white;  "><b><font color='white'><i class="fa fa-apple"> </i>&nbsp;&nbsp;IOS</font></b></button> |https://apps.apple.com/id/app/tuton/id6737981274
